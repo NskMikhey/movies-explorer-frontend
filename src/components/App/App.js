@@ -10,6 +10,7 @@ import {Login} from "../Login/Login";
 import {Register} from "../Register/Register";
 import {Profile} from "../Profile/Profile";
 import {NotFound} from "../NotFound/NotFound";
+import {SavedMovies} from "../SavedMovies/SavedMovies";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
@@ -29,7 +30,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Main/>}/>
             <Route path="/movies" element={<Movies/>}/>
-            {/*<Route path="/saved-movies" element={<SavedMovies/>}/>*/}
+            <Route path="/saved-movies" element={<SavedMovies/>}/>
             <Route path="/profile" element={<Profile setCurrentUser={setCurrentUser}/>}/>
             <Route path="/signin" element={<Login setCurrentUser={setCurrentUser}/>}/>
             <Route path="/signup" element={<Register/>}/>

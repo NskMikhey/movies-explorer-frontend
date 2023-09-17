@@ -35,7 +35,7 @@ export const movieCardList = [
     nameRu: 'В погоне за Бенкси',
     duration: 77,
     image: './images/pic__COLOR_pic-003.png',
-    saved: false
+    saved: true
   },
   {
     id: 4,

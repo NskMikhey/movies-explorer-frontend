@@ -84,11 +84,14 @@
 
 .movies-card__button-delete {
   border: none;
-  margin: 18px 0;
+  margin: 0;
   padding: 0;
-  width: 100px;
-  min-height: 29px;
-  /*background: url("../../../images/button-delete.svg") no-repeat center/ 100px 29px;*/
+  width: 21px;
+  min-height: 21px;
+  background: url("../../../images/button-delete.svg") no-repeat center;
+  position: absolute;
+  top: 14px;
+  right: 14px;
 }
 
 .movies-card__save-button_saved {

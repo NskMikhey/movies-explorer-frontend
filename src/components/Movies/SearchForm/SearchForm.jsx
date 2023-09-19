@@ -12,7 +12,7 @@ export function SearchForm() {
           </div>
           <div className="search__checkbox-container button-hover">
             <label className="search__checkbox-label">
-              <input className="search__checkbox" type="checkbox" name="searchCheckbox" id="searchCheckbox" placeholder=""/>
+              <input className="search__checkbox" type="checkbox" name="searchCheckbox" id="searchCheckbox"/>
               <span className="search__checkbox-span input-focus"/>
               <span className="search__checkbox-caption">Короткометражки</span>
             </label>

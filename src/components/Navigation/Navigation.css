@@ -1,9 +1,8 @@
 .header__burger-btn {
-  width: 40px;
-  min-height: 37px;
+  width: 44px;
   padding: 0;
   border: none;
-  background: url(../../images/button-burger.svg) no-repeat center;
+  background: url(../../images/button-burger.svg) no-repeat center / 44px;
 }
 
 .header__menu {
@@ -60,5 +59,9 @@
   .header__close-button {
     top: 18px;
     right: 18px;
+  }
+  .header__burger-btn {
+    width: 40px;
+    background: url(../../images/button-burger.svg) no-repeat center / 40px;
   }
 }

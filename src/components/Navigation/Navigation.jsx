@@ -5,6 +5,7 @@ import {WindowModeContext} from "../../contexts/WindowModeContext";
 import {NavAnon} from "./NavAnon/NavAnon";
 import {NavUser} from "./NavUser/NavUser";
 import {NavBurger} from "./NavBurger/NavBurger";
+import './Navigation.css'
 
 export function Navigation() {
   const location = useLocation();
@@ -27,6 +28,8 @@ export function Navigation() {
   }
 
   const navType = getType()
+  console.log(burgerActive)
+  console.log(navType)
 
   return (
     <>{{

@@ -33,15 +33,18 @@
   line-height: 16px;
   min-height: 32px;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   max-width: 250px;
 }
 
 .movies-card__duration {
   margin: 0;
+  padding: 3px 4px;
   color: #A0A0A0;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 10px;
   text-align: center;
   background-color: #F9F9F9;
   border-radius: 3px;
@@ -53,7 +56,7 @@
 
 .movies-card__image {
   width: 100%;
-  height: 201px;
+  max-height: 201px;
   cursor: pointer;
   object-fit: cover;
   object-position: center;
@@ -100,29 +103,50 @@
   min-width: 21px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .movies-card__title-container {
+    padding: 25px 0 0 0;
+  }
+
+  .movies-card__title {
+    min-height: unset;
+    max-height: 16px;
+  }
+
+  .movies-card__duration {
+    line-height: 10px;
+    font-size: 11px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .movies-card {
     max-width: 300px;
   }
 
   .movies-card__title-container {
-    padding: 14px;
+    padding: 16px 0 0 0;
   }
 
   .movies-card__title {
     font-size: 12px;
+    line-height: 15px;
+    min-height: unset;
   }
 
   .movies-card__duration {
-    font-size: 10px;
+    font-size: 11px;
+    line-height: 12px;
   }
 
   .movies-card__save-button {
-    margin: 14px 0;
+    top: 10px;
+    right: 10px;
   }
 
   .movies-card__button-delete {
-    margin: 14px 0;
+    top: 10px;
+    right: 10px;
   }
 
   .movies-card__image {

@@ -6,7 +6,6 @@
 }
 
 .about-me_size_l {
-  max-height: 554px;
   width: 100%;
 }
 
@@ -106,7 +105,6 @@
   .about-me_size_l {
     padding: 0 14px;
     box-sizing: border-box;
-    max-height: 904px;
   }
 
   .about-me__info-container {

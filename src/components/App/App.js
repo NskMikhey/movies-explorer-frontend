@@ -19,7 +19,6 @@ function App() {
     email: "pochta@yandex.ru",
     isLoggedIn: false
   });
-  console.log(currentUser)
 
   const screenType = useWindowSize();
 

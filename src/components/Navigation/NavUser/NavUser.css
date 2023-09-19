@@ -69,7 +69,7 @@
   background: #000000 url("../../../images/icon-profile-pink.svg") no-repeat center;
 }
 
-@media screen and (width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 971px){
   .header__nav {
     padding: 0;
   }
@@ -78,7 +78,7 @@
     min-height: 100vh;
     flex-direction: column;
     align-items: center;
-    padding-top: 159px;
+    padding-top: 160px;
     gap: 28px;
     box-sizing: border-box;
   }
@@ -114,19 +114,7 @@
   }
 
   .header__nav-account-link {
-    width: 100%;
-    padding-top: 7px;
-    margin-bottom: 89px;
-    color: #000;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 16px;
-    text-decoration: none;
-    min-height: 32px;
-    border-radius: 20px;
-    background-color: #F9F9F9;
-    box-sizing: border-box;
+    margin-bottom: 92px;
   }
 }
 
@@ -139,7 +127,7 @@
     min-height: 100vh;
     flex-direction: column;
     align-items: center;
-    padding-top: 144px;
+    padding-top: 145px;
     gap: 24px;
     box-sizing: border-box;
   }
@@ -175,16 +163,6 @@
   }
 
   .header__nav-account-link {
-    width: 100%;
-    padding-top: 7px;
-    margin-bottom: 33px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 16px;
-    min-height: 32px;
-    border-radius: 20px;
-    background-color: #F9F9F9;
-    box-sizing: border-box;
+    margin-bottom: 48px;
   }
 }

@@ -1,25 +1,24 @@
-import {Header} from "../Header/Header";
-import {Promo} from "./Promo/Promo";
-import {NavTab} from "./NavTab/NavTab";
-import {AboutProject} from "./AboutProject/AboutProject";
-import {Techs} from "./Techs/Techs";
-import {AboutMe} from "./AboutMe/AboutMe";
-import {Portfolio} from "./Portfolio/Portfolio";
-import {Footer} from "../Footer/Footer";
+import React from 'react';
+import Header from '../Header/Header';
+import Promo from '../Promo/Promo';
+import AboutProject from '../AboutProject/AboutProject';
+import Techs from '../Techs/Techs';
+import AboutMe from '../AboutMe/AboutMe';
+import Footer from '../Footer/Footer';
 
-export function Main() {
+const Main = (props) => {
   return (
     <>
-      <Header/>
-      <main className="landing page__main">
-        <Promo/>
-        <NavTab/>
-        <AboutProject/>
-        <Techs/>
-        <AboutMe/>
-        <Portfolio/>
+      <Header loggedIn={props.loggedIn} />
+      <main>
+        <Promo />
+        <AboutProject />
+        <Techs />
+        <AboutMe />
       </main>
-      <Footer/>
+      <Footer />
     </>
-  )
-}
+  );
+};
+
+export default Main;

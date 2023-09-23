@@ -1,24 +1,36 @@
-import {Link} from "react-router-dom";
-import './Footer.css'
+import React from 'react';
+import './Footer.css';
+import { Link } from 'react-router-dom';
 
-export function Footer() {
+const Footer = (props) => {
   return (
-    <footer className="footer footer_size_l">
-      <h2 className="footer__title">Учебный проект Яндекс.Практикум х&nbsp;BeatFilm.</h2>
-      <div className="footer__basement">
-        <p className="footer__copyright">&copy; 2020</p>
-        <nav>
-          <ul className="footer__links list">
-            <li className="footer__links-element">
-              <Link to="https://practicum.yandex.ru" className="footer__link link-hover"
-                    target="_blank">Яндекс.Практикум</Link>
-            </li>
-            <li className="footer__links-element">
-              <Link to="https://github.com/NskMikhey" className="footer__link link-hover" target="_blank">Github</Link>
-            </li>
-          </ul>
-        </nav>
+    <footer className='footer'>
+      <p className='footer__description'>
+        Учебный проект Яндекс.Практикум х BeatFilm.
+      </p>
+      <div className='footer__container'>
+        <p className='footer__copyright'>&copy; 2023</p>
+
+        <div className='footer__links'>
+          <Link
+            className='footer__link'
+            to='https://practicum.yandex.ru/'
+            target='_blank'
+          >
+            Яндекс.Практикум
+          </Link>
+
+          <Link
+            className='footer__link'
+            to='https://github.com/NskMikhey/movies-explorer-frontend'
+            target='_blank'
+          >
+            Github
+          </Link>
+        </div>
       </div>
     </footer>
-  )
-}
+  );
+};
+
+export default Footer;

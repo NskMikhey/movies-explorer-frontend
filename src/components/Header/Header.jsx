@@ -4,7 +4,6 @@ import { Link, NavLink } from 'react-router-dom';
 import './Header.css';
 
 const Header = (props) => {
-  console.log(props.loggedIn);
   const [menuBurgerActive, setMenuBurgerActive] = React.useState(false);
 
   // Бургер меню
@@ -12,8 +11,10 @@ const Header = (props) => {
     setMenuBurgerActive(!menuBurgerActive);
   }
 
+  const classHeader = props.loggedIn ? 'header header_open' : 'header'
+
   return (
-    <header className={props.loggedIn ? 'header header_open' : 'header'}>
+    <header className={props.isLanding ? `${classHeader} header_landing` : classHeader}>
       <nav className='header__nav'>
         <Link className='header__link' href='/' title='Movies'>
           <img className='header__logo' src={headerLogo} alt='Логотип Movies' />

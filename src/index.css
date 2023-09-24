@@ -10,5 +10,16 @@
   color: #FFFFFF;
   position: relative;
   width: 100%;
+  height: auto;
+  min-height: 100vh;
+  /* display: flex;
+  flex-direction: column;
+  box-sizing: border-box; */
+}
+
+.page__container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
   height: 100vh;
 }

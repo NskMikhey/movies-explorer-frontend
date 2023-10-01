@@ -21,6 +21,10 @@
   display: block;
 }
 
+.header__link {
+  display: block;
+}
+
 .header__list-menu {
   display: flex;
   align-items: center;
@@ -78,7 +82,7 @@
   content: '';
   display: block;
   border-radius: 6px;
-  background-color: #0F4157;
+  background-color: #313131;
   background-image: url(../../images/icon__COLOR_icon-main.svg);
   background-size: 11px;
   background-repeat: no-repeat;
@@ -100,14 +104,12 @@
   z-index: 10;
 }
 
-.header__menu-burger_active {
-  background-image: url(../../images/Group.svg);
-  width: 44px;
-  height: 44px;
-}
-
 .header_landing {
   background-color: #073042;
+}
+
+.header_landing .header__link-menu_profile::after {
+  background-color: #0F4157;
 }
 
 @media screen and (max-width: 920px) {
@@ -118,6 +120,13 @@
   .header__nav {
     padding: 15px 30px;
     justify-content: space-between;
+  }
+
+
+  .header__menu-burger_active {
+    background-image: url(../../images/Group.svg);
+    position: fixed;
+    right: 16px;
   }
 
   .header__list-menu_site {
@@ -154,6 +163,8 @@
   .header__menu_open {
     display: flex;
     justify-content: flex-end;
+    position: fixed;
+    z-index: 10;
   }
 
   .header__menu-burger {
@@ -162,11 +173,7 @@
 
   .header__link-menu.active {
     text-decoration: underline 2px;
-    text-underline-offset: 11px;
-  }
-
-  .header__link-menu_profile::after {
-    background-color: #313131;
+    text-underline-offset: 9px;
   }
 
   .header__link-menu_profile {
@@ -192,6 +199,10 @@
     font-size: 12px;
     line-height: 16px;
   }
+
+  .header_landing .header__link-menu_profile::after {
+    background-color: #313131;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -206,6 +217,10 @@
 
   .header__link-menu_profile::after {
     background-color: #313131;
+  }
+
+  .header__link-menu.active {
+    text-underline-offset: 12px;
   }
 
   .header__link-menu_profile {
@@ -225,5 +240,17 @@
   .header__link-menu_button {
     font-size: 10px;
     padding: 5px 12px;
+  }
+
+  .header__menu-burger {
+    width: 40px;
+    height: 43px;
+    background-size: 35px 43px;
+  }
+
+  .header__menu-burger_active {
+    right: 8px;
+    top: 7px;
+    background-size: 32px;
   }
 }

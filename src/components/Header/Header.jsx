@@ -4,19 +4,22 @@ import { Link, NavLink } from 'react-router-dom';
 import './Header.css';
 
 const Header = (props) => {
-  const [menuBurgerActive, setMenuBurgerActive] = React.useState(false);
-
   // Бургер меню
+  const [menuBurgerActive, setMenuBurgerActive] = React.useState(false);
   function handleOpenMenu() {
     setMenuBurgerActive(!menuBurgerActive);
   }
 
-  const classHeader = props.loggedIn ? 'header header_open' : 'header'
+  const classHeader = props.loggedIn ? 'header header_open' : 'header';
 
   return (
-    <header className={props.isLanding ? `${classHeader} header_landing` : classHeader}>
+    <header
+      className={
+        props.isLanding ? `${classHeader} header_landing` : classHeader
+      }
+    >
       <nav className='header__nav'>
-        <Link className='header__link' href='/' title='Movies'>
+        <Link className='header__link button-hover' to='/' title='Movies'>
           <img className='header__logo' src={headerLogo} alt='Логотип Movies' />
         </Link>
         {props.loggedIn && (
@@ -31,24 +34,24 @@ const Header = (props) => {
               <ul className='header__list-menu header__list-menu_site'>
                 {menuBurgerActive && (
                   <li className='header__item-menu'>
-                    <NavLink className='header__link-menu' to='/'>
+                    <NavLink className='header__link-menu link-hover' to='/'>
                       Главная
                     </NavLink>
                   </li>
                 )}
                 <li className='header__item-menu'>
-                  <NavLink className='header__link-menu' to='/movies'>
+                  <NavLink className='header__link-menu link-hover' to='/movies'>
                     Фильмы
                   </NavLink>
                 </li>
                 <li className='header__item-menu'>
-                  <NavLink className='header__link-menu' to='/saved-movies'>
+                  <NavLink className='header__link-menu link-hover' to='/saved-movies'>
                     Сохранённые фильмы
                   </NavLink>
                 </li>
                 <li className='header__item-menu'>
                   <Link
-                    className='header__link-menu header__link-menu_profile'
+                    className='header__link-menu link-hover header__link-menu_profile'
                     to='/profile'
                   >
                     Аккаунт
@@ -72,7 +75,7 @@ const Header = (props) => {
           <ul className='header__list-menu header__list-menu_auth'>
             <li className='header__item-auth'>
               <Link
-                className='header__link-menu header__link-menu_auth'
+                className='header__link-menu header__link-menu_auth link-hover'
                 to='/signup'
               >
                 Регистрация
@@ -80,7 +83,7 @@ const Header = (props) => {
             </li>
             <li className='header__item-auth'>
               <Link
-                className='header__link-menu header__link-menu_button'
+                className='header__link-menu header__link-menu_button button-hover'
                 to='/signin'
               >
                 Войти

@@ -17,6 +17,7 @@
 .error-page__subtitle {
   font-size: 16px;
   line-height: normal;
+  margin: 0;
   margin-bottom: auto;
 }
 
@@ -40,6 +41,7 @@
 
   .error-page__title {
     font-size: 80px;
+    margin-bottom: 10px;
   }
 
   .error-page__subtitle {

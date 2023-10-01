@@ -1,66 +1,71 @@
 .movies-list {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 70px;
-    box-sizing: border-box;
-  }
-  
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 70px;
+  box-sizing: border-box;
+}
+
+.movies-list__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px 30px;
+  justify-content: center;
+  padding: 70px 0 10px;
+}
+
+.movies-list__item {
+  display: flex;
+  justify-content: center;
+}
+
+.movies-list__more-button-container {
+  padding: 50px 0 80px;
+  min-height: 140px;
+  box-sizing: border-box;
+}
+
+.movies-list__more-button {
+  width: 100%;
+  padding: 11px 0 9px 0;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+  background-color: #2F2F2F;
+  border-radius: 6px;
+  border: 0;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 920px) {
   .movies-list__list {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    justify-content: center;
-    padding: 70px 0 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px 24px;
   }
-  
-  .movies-list__more-button-container {
-    padding: 50px 0 80px;
-    min-height: 166px;
-    box-sizing: border-box;
+
+  .movies-list {
+    padding: 0 30px;
   }
-  
-  .movies-list__more-button {
-    width: 100%;
-    min-height: 36px;
-    height: 100%;
-    color: #FFFFFF;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: normal;
-    background-color: #2F2F2F;
-    border-radius: 6px;
-    border: 0;
+
+  .movies-list__list {
+    padding-bottom: 30px;
   }
-  
-  @media screen and (max-width: 920px) {
-    .movies-list__list {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 35px 24px;
-    }
-  
-    .movies-list {
-      padding: 0 30px;
-    }
-  
-    .movies-list__list {
-      padding-bottom: 30px;
-    }
+}
+
+@media screen and (max-width: 767px) {
+  .movies-list__list {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
   }
-  
-  @media screen and (max-width: 767px) {
-    .movies-list__list {
-      grid-template-columns: repeat(1, 1fr);
-      gap: 16px;
-    }
-  
-    .movies-list {
-      padding: 0 10px;
-    }
-  
-    .movies-list__list {
-      padding: 40px 0 30px;
-    }
+
+  .movies-list {
+    padding: 0 10px;
   }
+
+  .movies-list__list {
+    padding: 40px 0 30px;
+  }
+}

@@ -12,7 +12,7 @@ const Promo = (props) => {
         <p className='promo__subtitle'>
           Листайте ниже, чтобы узнать больше про этот проект и его создателя.
         </p>
-        <Link className='promo__button' to='#about-project' reloadDocument>
+        <Link className='promo__button button-hover' to='#about-project' reloadDocument>
           Узнать больше
         </Link>
       </div>

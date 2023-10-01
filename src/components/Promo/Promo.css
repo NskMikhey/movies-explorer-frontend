@@ -24,12 +24,14 @@
   max-width: 640px;
   margin: 0;
   margin-bottom: 36px;
+  margin-right: 350px;
 }
 
 .promo__subtitle {
   font-size: 13px;
   line-height: normal;
   max-width: 310px;
+  margin: 0;
   margin-bottom: 146px;
   opacity: 0.5;
 }
@@ -37,7 +39,7 @@
 .promo__button {
   text-decoration: none;
   color: #FFFFFF;
-  padding: 10px 20px;
+  padding: 9px 19px;
   border-radius: 3px;
   border: 1px solid rgba(255, 255, 255, 0.6);
   margin-right: auto;
@@ -58,7 +60,9 @@
     max-width: 680px;
     text-align: center;
     font-size: 40px;
+    line-height: 50px;
     margin-bottom: 22px;
+    margin-right: 0;
   }
 
   .promo__subtitle {

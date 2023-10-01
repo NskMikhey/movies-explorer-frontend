@@ -1,0 +1,82 @@
+.form__body {
+  min-width: 396px;
+  min-height: 380px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.form__input-group {
+  display: flex;
+  flex-direction: column;
+  min-height: 69px;
+  color: #8B8B8B;
+  font-size: 10px;
+  line-height: normal;
+}
+
+.form__input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #424242;
+  padding: 5px 0 10px;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: normal;
+}
+
+.form__input:invalid {
+  color: #EE3465;
+}
+
+.form__input::placeholder {
+  color: #FFFFFF;
+}
+
+.form__input-group:last-of-type {
+  margin-bottom: auto;
+}
+
+.form__submit {
+  background-color: #4285F4;
+  border-radius: 3px;
+  border: 0;
+  color: #FFFFFF;
+  padding: 13px 15px 15px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.form__submit:disabled {
+  background-color: #F8F8F8;
+  color: #C2C2C2;
+  cursor: auto;
+}
+
+.form__error {
+  color: #EE3465;
+  font-size: 10px;
+  line-height: normal;
+  max-width: 390px;
+}
+
+.form__error_response {
+  font-size: 11px;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .form__body {
+    min-width: 260px;
+    margin-bottom: 14px;
+  }
+
+  .form__input-group {
+    max-width: 260px;
+  }
+}

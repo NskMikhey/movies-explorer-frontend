@@ -16,20 +16,9 @@ const SearchForm = (props) => {
             required
             // onChange={handleCardChange}
           />
-          {/* <span
-            className={[
-              'search-form__error',
-              formValidationMessages.name !== ''
-                ? 'search-form__error_visible'
-                : '',
-            ].join(' ')}
-            id='place_name-error'
-          >
-            {formValidationMessages.name}
-          </span> */}
         </label>
         {props.children}
-        <button className='search-form__submit' type='submit'>
+        <button className='search-form__submit button-hover' type='submit'>
           Поиск
         </button>
       </form>

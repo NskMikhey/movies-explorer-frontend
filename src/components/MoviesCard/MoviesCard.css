@@ -1,75 +1,89 @@
 .card {
-    width: 100%;
-    max-width: 360px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 6px;
-    box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
-    background-color: #222222;
-  }
-  
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 6px;
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
+  background-color: #222222;
+}
+
+.card__info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px;
+  box-sizing: border-box;
+  margin-bottom: auto;
+}
+
+.card__title {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card__duration {
+  color: #8B8B8B;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.card__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 360/200;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.card__like {
+  max-width: 100px;
+  width: 100%;
+  min-height: 29px;
+  height: 100%;
+  background-color: #313131;
+  border-radius: 30px;
+  border: 0;
+  color: #FFFFFF;
+  margin: 18px;
+  flex-basis: 0;
+  cursor: pointer;
+}
+
+.card__like_active {
+  background-color: #EE3465;
+  background-image: url(../../images/icon__COLOR_invisible.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media screen and (max-width: 767px) {
   .card__info {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    gap: 14px;
-    padding: 18px;
-    box-sizing: border-box;
+    padding: 14px;
   }
-  
+
   .card__title {
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 18px;
-    margin: 0;
+    font-size: 12px;
   }
-  
+
   .card__duration {
-    color: #8B8B8B;
-    font-size: 13px;
-    line-height: 18px;
-    margin: 0;
+    font-size: 10px;
   }
-  
-  .card__image {
-    display: block;
-    width: 100%;
-    aspect-ratio: 360/200;
-  }
-  
+
   .card__like {
-    max-width: 100px;
-    width: 100%;
-    min-height: 29px;
-    height: 100%;
-    background-color: #313131;
-    border-radius: 30px;
-    border: 0;
-    color: #FFFFFF;
-    margin: 18px;
+    margin: 14px;
   }
-  
-  .card__like_active {
-    background-color: #EE3465;
-    background-image: url(../../images/icon__COLOR_invisible.svg);
-    background-repeat: no-repeat;
-    background-position: center;
+
+  .card__image {
+    aspect-ratio: 300/168;
   }
-  
-  @media screen and (max-width: 767px) {
-    .card__info {
-      padding: 14px;
-    }
-  
-    .card__title {
-      font-size: 12px;
-    }
-  
-    .card__duration {
-      font-size: 10px;
-    }
-    .card__like {
-      margin: 14px;
-    }
-  }
+}

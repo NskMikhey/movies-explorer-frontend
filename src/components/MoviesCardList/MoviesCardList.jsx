@@ -1,14 +1,12 @@
 import React from 'react';
 import './MoviesCardList.css';
-import { movieCardList } from '../../utils/data';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
 const MoviesCardList = (props) => {
-  console.log(props.isMoviesPage);
   return (
     <section className='movies-list'>
       <ul className='movies-list__list'>
-        {movieCardList.map((card) => (
+        {props.movies.map((card) => (
           <li className='movies-list__item' key={card.id}>
             <MoviesCard
               card={card}

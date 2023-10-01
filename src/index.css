@@ -12,9 +12,6 @@
   width: 100%;
   height: auto;
   min-height: 100vh;
-  /* display: flex;
-  flex-direction: column;
-  box-sizing: border-box; */
 }
 
 .page__container {
@@ -23,3 +20,36 @@
   box-sizing: border-box;
   height: 100vh;
 }
+
+button,
+input {
+  font-family: 'Inter', 'Arial', sans-serif;
+}
+
+input:hover {
+  opacity: 0.7;
+}
+
+.button-hover:hover {
+  opacity: 0.8;
+}
+
+.button-hover:disabled {
+  opacity: 1;
+}
+
+.link-hover:hover {
+  opacity: 0.7;
+}
+
+*:focus-visible,
+  button:focus-visible,
+  [type="button"]:focus-visible,
+  [type="reset"]:focus-visible,
+  [type="submit"]:focus-visible {
+    outline-color: #4285F4;
+    outline-style: solid;
+    outline-width: 1px;
+    outline-offset: 2px;
+    border-radius: 5px;
+  }

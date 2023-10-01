@@ -13,7 +13,7 @@ const Footer = (props) => {
 
         <div className='footer__links'>
           <Link
-            className='footer__link'
+            className='footer__link link-hover'
             to='https://practicum.yandex.ru/'
             target='_blank'
           >
@@ -21,7 +21,7 @@ const Footer = (props) => {
           </Link>
 
           <Link
-            className='footer__link'
+            className='footer__link link-hover'
             to='https://github.com/NskMikhey/movies-explorer-frontend'
             target='_blank'
           >

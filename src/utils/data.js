@@ -94,7 +94,7 @@ export const movieCardList = [
     id: 12,
     nameRu: 'В погоне за Бенкси',
     duration: 42,
-    image: twelve,
+    link: twelve,
     isLiked: false
   },
 ]

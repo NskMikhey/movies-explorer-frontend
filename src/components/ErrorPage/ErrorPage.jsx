@@ -7,7 +7,7 @@ const ErrorPage = (props) => {
     <main className='error-page'>
       <h1 className='error-page__title'>404</h1>
       <p className='error-page__subtitle'>Страница не найдена</p>
-      <Link className='error-page__link' to={-1}>
+      <Link className='error-page__link link-hover' to={-1}>
         Назад
       </Link>
     </main>

@@ -18,6 +18,7 @@
   line-height: normal;
   font-weight: 400;
   width: 100%;
+  margin: 0;
   padding-bottom: 23px;
   border-bottom: 1px solid #DADADA;
 }
@@ -78,10 +79,15 @@
   .techs__item {
     width: 84px;
     height: 57px;
+    font-size: 12px;
   }
 }
 
 @media screen and (max-width: 767px) {
+  .techs {
+    background-color: transparent;
+  }
+
   .techs__container {
     padding: 70px 18px;
   }
@@ -116,5 +122,6 @@
   .techs__item {
     width: 84px;
     height: 57px;
+    letter-spacing: -0.48px;
   }
 }

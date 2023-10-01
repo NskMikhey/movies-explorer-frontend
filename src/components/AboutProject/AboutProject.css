@@ -1,11 +1,12 @@
 .about-project {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 110px 70px;
+  padding: 110px 70px 105px;
   box-sizing: border-box;
 }
 
 .about-project__title {
+  margin: 0;
   font-size: 22px;
   letter-spacing: -0.88px;
   line-height: normal;
@@ -64,15 +65,21 @@
 
 .about-project__tracker-description {
   display: flex;
-  align-items: center;
   justify-content: center;
   margin: 0;
+
+  padding-top: 12px;
   color: #8B8B8B;
 }
 
 @media screen and (max-width: 920px) {
+  .about-project {
+    padding: 90px 50px 85px;
+  }
+
   .about-project__list {
     margin-bottom: 93px;
+    gap: 30px;
   }
 
   .about-project__subtitle {
@@ -95,13 +102,15 @@
 
 @media screen and (max-width: 767px) {
   .about-project {
-    padding: 70px 18px;
+    padding: 70px 18px 59px;
   }
 
   .about-project__title {
     font-size: 18px;
+    line-height: 22px;
     letter-spacing: -0.72px;
     margin-bottom: 60px;
+    padding-bottom: 28px;
   }
 
   .about-project__list {
@@ -112,6 +121,7 @@
 
   .about-project__subtitle {
     font-size: 18px;
+    line-height: 22px;
     letter-spacing: -0.72px;
     margin-bottom: 16px;
   }

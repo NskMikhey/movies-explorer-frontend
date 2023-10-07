@@ -13,7 +13,11 @@ const FilterCheckbox = (props) => {
         // onChange={handleCardChange}
       />
 
-      <label className='search-form__input-group search-form__input-group_checkbox' htmlFor='short' tabIndex='0'>
+      <label
+        className='search-form__input-group search-form__input-group_checkbox'
+        htmlFor='short'
+        tabIndex='0'
+      >
         Короткометражки
       </label>
     </>

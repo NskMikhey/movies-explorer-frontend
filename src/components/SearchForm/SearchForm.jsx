@@ -14,7 +14,8 @@ const SearchForm = (props) => {
             name='search'
             id='search'
             required
-            // onChange={handleCardChange}
+            // onChange={props.handleCardChange}
+            onChange={() => {}}
           />
         </label>
         {props.children}

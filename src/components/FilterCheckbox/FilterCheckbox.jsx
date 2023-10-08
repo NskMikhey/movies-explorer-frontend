@@ -7,10 +7,10 @@ const FilterCheckbox = (props) => {
       <input
         className='search-form__input search-form__input_checkbox'
         type='checkbox'
-        // value={card.name || ''}
         name='short'
         id='short'
-        // onChange={handleCardChange}
+        checked={props.searchData.short}
+        onChange={props.onChange}
       />
 
       <label

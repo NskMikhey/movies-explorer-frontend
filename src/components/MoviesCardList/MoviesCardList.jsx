@@ -7,12 +7,15 @@ const MoviesCardList = (props) => {
     <section className='movies-list'>
       <ul className='movies-list__list'>
         {props.movies.map((card) => (
-          <li className='movies-list__item' key={card.id}>
+          <li className='movies-list__item' key={card.id || card.movieId}>
             <MoviesCard
               card={card}
               onCardClick={() => {}}
-              onCardLike={() => {}}
               onDeleteCard={() => {}}
+              isMoviesPage={props.isMoviesPage}
+              savedMovies={props.savedMovies}
+              onLike={props.onLike}
+              onDelete={props.onDelete}
             />
           </li>
         ))}

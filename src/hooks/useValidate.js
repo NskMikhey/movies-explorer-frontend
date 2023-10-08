@@ -17,7 +17,14 @@ export function useValidate(data, setData) {
   const { pathname } = useLocation();
   // Изменяет стейт data
   function handleDataChange(evt) {
-    const { name, value } = evt.target;
+    const { name, value, checked, type } = evt.target;
+    
+    if (type === 'checkbox') {
+      return setData({
+        ...data,
+        [name]: checked,
+      });
+    }
     setData({
       ...data,
       [name]: value,
@@ -31,7 +38,7 @@ export function useValidate(data, setData) {
     const { name, validationMessage, value } = evt.target;
     const { valid } = evt.target.validity;
 
-    // Выпор регулярного сообщения по имени поля
+    // Выбор регулярного выражения и сообщения по имени поля
     let validParametrs;
     switch (name) {
       case 'name':
@@ -44,6 +51,12 @@ export function useValidate(data, setData) {
         validParametrs = {
           regx: REGX_EMAIL,
           message: MESSAGE_TEXT.noEmail,
+        };
+        break;
+      case 'search':
+        validParametrs = {
+          regx: REGX_ALL,
+          message: MESSAGE_TEXT.emptyString,
         };
         break;
       default:

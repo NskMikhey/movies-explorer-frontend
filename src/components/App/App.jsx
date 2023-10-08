@@ -8,9 +8,8 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { SavedMoviesContext } from '../../contexts/SavedMoviesContext';
 
-import { getAllMoviesApi } from '../../utils/MoviesApi';
 import { api } from '../../utils/MainApi';
 import {
   LOCALSTORAGE_ISLOGGEDIN,
@@ -20,6 +19,7 @@ import {
 } from '../../utils/constants';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function App() {
   // Деструктурируем все переменные путей
@@ -50,8 +50,8 @@ function App() {
     email: '',
   });
 
-  // Состояние массива фильмов с сервиса beatfilm-movies
-  const [allMovies, setAllMovies] = React.useState([]);
+  // Состояние массива сохраненных фильмов с сервера
+  const [savedMovies, setSavedMovies] = React.useState([]);
 
   // Состояние ответов сервера
   const [response, setResponse] = React.useState({});
@@ -127,14 +127,13 @@ function App() {
     }
   };
 
-  // Проверка токена
-  React.useEffect(() => {
-    tokenCheck();
-  }, [loggedIn]);
+  // // Проверка токена
+  // React.useEffect(() => {
+  //   tokenCheck();
+  // }, [loggedIn]);
 
   // Отправка данных пользователя, обновление стейта currentUser
   function handleUpdateUser(inputValues) {
-    console.log(inputValues);
     api
       .setUserData(inputValues)
       .then((user) => {
@@ -154,113 +153,148 @@ function App() {
       });
   }
 
-  // Получение всех фильмов с сервера beatfilm-movies
-  const getAllMovies = async () => {
-    try {
-      const movies = await getAllMoviesApi();
-      setAllMovies(movies);
-      return movies;
-    } catch (err) {
-      err.then((res) => {
-        handleInfoTooltipPopupOpen();
-        setInfoTooltip({ type: 'error', message: res.message });
-      });
+  // Получение сохраненных фильмов
+  React.useEffect(() => {
+    tokenCheck();
+    if (currentUser.isLoggedIn) {
+      api
+        .getMovies()
+        .then((movies) => {
+          setSavedMovies(movies.data);
+        })
+        .catch((err) => {
+          err.then((res) => {
+            setResponse({ type: 'error', message: res.message });
+          });
+        });
     }
-  };
+  }, [currentUser.isLoggedIn]);
+
+  // Добавления фильма в сохраненные
+  function handleMovieLike(movie) {
+    api
+      .addNewMovie(movie)
+      .then((newMovie) => {
+        setSavedMovies([...savedMovies, newMovie.data]);
+      })
+      .catch((err) => {
+        err.then((res) => {
+          setResponse({ type: 'error', message: res.message });
+        });
+      });
+  }
+
+  // Удаление фильма из сохраненных
+  function handleDeletLike(movieId) {
+    api
+      .removeMovie(movieId)
+      .then(() => {
+        setSavedMovies((movies) =>
+          movies.filter((item) => item._id !== movieId)
+        );
+      })
+      .catch((err) => {
+        err.then((res) => {
+          setResponse({ type: 'error', message: res.message });
+        });
+      });
+  }
 
   // Выход, удаление токена
   const signOut = () => {
     localStorage.clear();
     setCurrentUser({});
-    setAllMovies([]);
     navigate(MAIN);
     setLoggedIn(false);
     setResponse({});
   };
 
-  
-
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <div className='App'>
-        <Routes>
-          <Route
-            path={MAIN}
-            element={<Main loggedIn={loggedIn} isLanding='true' />}
-          />
-          <Route
-            path={MOVIES}
-            element={
-              <ProtectedRoute
-                element={Movies}
-                loggedIn={loggedIn}
-                isLanding={false}
-                isMoviesPage={true}
-                getAllMovies={getAllMovies}
-                allMovies={allMovies}
-              />
-            }
-          />
-          <Route
-            path={SAVED_MOVIES}
-            element={
-              <ProtectedRoute
-                element={SavedMovies}
-                loggedIn={loggedIn}
-                isLanding={false}
-                isMoviesPage={false}
-              />
-            }
-          />
-          <Route
-            path={PROFILE}
-            element={
-              <ProtectedRoute
-                element={Profile}
-                loggedIn={loggedIn}
-                setLoggedIn={setLoggedIn}
-                isLanding={false}
-                signOut={signOut}
-                handleUpdateUser={handleUpdateUser}
-                response={response}
-                isFormActive={isFormActive}
-                setFormActive={setFormActive}
-                setResponse={setResponse}
-              />
-            }
-          />
-          <Route
-            path={REGISTER}
-            element={
-              loggedIn ? (
-                <Navigate to={MAIN} replace />
-              ) : (
-                <Register
-                  registration={registration}
-                  InfoTooltip={infoTooltipOpen}
+      <SavedMoviesContext.Provider value={savedMovies}>
+        <div className='App'>
+          <Routes>
+            <Route
+              path={MAIN}
+              element={<Main loggedIn={loggedIn} isLanding='true' />}
+            />
+            <Route
+              path={MOVIES}
+              element={
+                <ProtectedRoute
+                  element={Movies}
+                  loggedIn={loggedIn}
+                  isLanding={false}
+                  isMoviesPage={true}
+                  savedMovies={savedMovies}
+                  onLike={handleMovieLike}
+                  onDelete={handleDeletLike}
                 />
-              )
-            }
-          />
-          <Route
-            path={LOGIN}
-            element={
-              loggedIn ? (
-                <Navigate to={MAIN} replace />
-              ) : (
-                <Login authorization={authorization} />
-              )
-            }
-          />
-          <Route path={ANY_OTHER} element={<ErrorPage />} />
-        </Routes>
+              }
+            />
+            <Route
+              path={SAVED_MOVIES}
+              element={
+                <ProtectedRoute
+                  element={SavedMovies}
+                  loggedIn={loggedIn}
+                  isLanding={false}
+                  isMoviesPage={false}
+                  savedMovies={savedMovies}
+                  onDelete={handleDeletLike}
+                />
+              }
+            />
+            <Route
+              path={PROFILE}
+              element={
+                <ProtectedRoute
+                  element={Profile}
+                  loggedIn={loggedIn}
+                  setLoggedIn={setLoggedIn}
+                  isLanding={false}
+                  signOut={signOut}
+                  handleUpdateUser={handleUpdateUser}
+                  response={response}
+                  isFormActive={isFormActive}
+                  setFormActive={setFormActive}
+                  setResponse={setResponse}
+                />
+              }
+            />
+            <Route
+              path={REGISTER}
+              element={
+                loggedIn ? (
+                  <Navigate to={MAIN} replace />
+                ) : (
+                  <Register
+                    registration={registration}
+                    InfoTooltip={infoTooltipOpen}
+                  />
+                )
+              }
+            />
+            <Route
+              path={LOGIN}
+              element={
+                loggedIn ? (
+                  <Navigate to={MAIN} replace />
+                ) : (
+                  <Login authorization={authorization} />
+                )
+              }
+            />
+            <Route path={ANY_OTHER} element={<ErrorPage />} />
+          </Routes>
 
-        <InfoTooltip
-          popupOpen={infoTooltipOpen}
-          onClose={closePopups}
-          infoTooltip={infoTooltip}
-        />
-      </div>
+          <InfoTooltip
+            popupOpen={infoTooltipOpen}
+            onClose={closePopups}
+            infoTooltip={infoTooltip}
+          />
+        </div>
+      </SavedMoviesContext.Provider>
     </CurrentUserContext.Provider>
   );
 }

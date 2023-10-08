@@ -1,17 +1,7 @@
 import { PATH_TO } from './constants';
 import { apiSettings } from './utils';
 
-const {
-  MAIN,
-  REGISTER,
-  LOGIN,
-  MOVIES,
-  SAVED_MOVIES,
-  PROFILE,
-  ANY_OTHER,
-  USER_ME,
-  BEATFILM,
-} = PATH_TO;
+const { REGISTER, LOGIN, MOVIES, USER_ME } = PATH_TO;
 
 class Api {
   constructor(options) {
@@ -59,7 +49,7 @@ class Api {
     }).then((res) => this._handlePromiseReturn(res));
   }
 
-  //Отправляет инфо о пользователе на сервер
+  // Отправляет инфо о пользователе на сервер
   setUserData({ name, email }) {
     return fetch(`${this._serverURL}${USER_ME}`, {
       method: 'PATCH',
@@ -74,79 +64,39 @@ class Api {
     }).then((res) => this._handlePromiseReturn(res));
   }
 
-  //   // Метот передачи данных пользователя на сервер
-  //   setUserInfoApi(userData) {
-  //     return this._request(`${this._baseUrl}${userPath}`, {
-  //       method: patchFetch,
-  //       headers: this._headers,
-  //       credentials: CREDENTIALS,
-  //       body: JSON.stringify({
-  //         name: name,
-  //         email: email
-  //       })
-  //     })
-  //   }
+  // РАБОТА С КАРТОЧКАМИ
+  // Получает фильмы с сервера
+  getMovies() {
+    return fetch(`${this._serverURL}${MOVIES}`, {
+      headers: {
+        authorization: 'Bearer ' + localStorage.getItem('jwt'),
+        ...this._headers,
+      },
+    }).then((res) => this._handlePromiseReturn(res));
+  }
 
-  //  const setUserInfo = async ({ name, email }) => {
-  //     const res = await fetch(`${BASE_URL_MAIN}${USER_PATH}`, {
-  //       method: CHANGE_METHOD,
-  //       headers: {
-  //         'Accept': 'application/json',
-  //         'Content-Type': 'application/json',
-  //         'Authorization': `Bearer ${localStorage.getItem(KEYWORD_LOCALSTORAGE_JWT)}`,
-  //       },
-  //       body: JSON.stringify({ name, email })
-  //     });
-  //     const data = await isOk(res);
-  //     return data;
-  //   }
+  // Отправляет данные о новом фильме на сервер
+  addNewMovie(movie) {
+    return fetch(`${this._serverURL}${MOVIES}`, {
+      method: 'POST',
+      headers: {
+        authorization: 'Bearer ' + localStorage.getItem('jwt'),
+        ...this._headers,
+      },
+      body: JSON.stringify(movie),
+    }).then((res) => this._handlePromiseReturn(res));
+  }
 
-  // // РАБОТА С КАРТОЧКАМИ
-  // //Получает карточки с сервера
-  // getCards() {
-  //   return fetch(`${this._serverURL}/cards`, {
-  //     headers: {
-  //       authorization: 'Bearer ' + localStorage.getItem('jwt'),
-  //       ...this._headers,
-  //     },
-  //   }).then((res) => this._handlePromiseReturn(res));
-  // }
-  // //Отправляет данные о новой карточке на сервер
-  // addNewCard(cardName, cardLink) {
-  //   return fetch(`${this._serverURL}/cards`, {
-  //     method: 'POST',
-  //     headers: {
-  //       authorization: 'Bearer ' + localStorage.getItem('jwt'),
-  //       ...this._headers,
-  //     },
-  //     body: JSON.stringify({
-  //       name: cardName,
-  //       link: cardLink,
-  //     }),
-  //   }).then((res) => this._handlePromiseReturn(res));
-  // }
-  // // Ставит/удаляет лайк
-  // changeLikeCardStatus(cardID, cardLiked) {
-  //   return fetch(`${this._serverURL}/cards/${cardID}/likes`, {
-  //     method: cardLiked ? 'DELETE' : 'PUT',
-  //     headers: {
-  //       authorization: 'Bearer ' + localStorage.getItem('jwt'),
-  //       ...this._headers,
-  //     },
-  //   }).then((res) => this._handlePromiseReturn(res));
-  // }
-
-  // //Удаляет карточку с сервера
-  // removeCard(cardID) {
-  //   return fetch(`${this._serverURL}/cards/${cardID}`, {
-  //     method: 'DELETE',
-  //     headers: {
-  //       authorization: 'Bearer ' + localStorage.getItem('jwt'),
-  //       ...this._headers,
-  //     },
-  //   });
-  // }
-  // // Параллельное получение информации о пользователе и карточек
+  // Удаляет данные о новом фильме на сервер
+  removeMovie(id) {
+    return fetch(`${this._serverURL}${MOVIES}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        authorization: 'Bearer ' + localStorage.getItem('jwt'),
+        ...this._headers,
+      },
+    }).then((res) => this._handlePromiseReturn(res));
+  }
 
   // getAllData() {
   //   return Promise.all([this.getUserMe(), this.getCards()]);

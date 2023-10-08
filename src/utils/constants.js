@@ -7,6 +7,7 @@ export const BASE_URL_MOVIE = 'https://api.nomoreparties.co';
 export const LOCALSTORAGE_ISLOGGEDIN = 'isLoggedIn';
 export const LOCALSTORAGE_JWT = 'jwt';
 export const LOCALSTORAGE_SEARCH = 'search';
+export const LOCALSTORAGE_MOVIES = 'movies';
 
 // Роуты приложения
 export const PATH_TO = {

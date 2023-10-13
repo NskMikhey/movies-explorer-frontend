@@ -126,18 +126,12 @@ function App() {
         });
     }
   };
-
-  // // Проверка токена
-  // React.useEffect(() => {
-  //   tokenCheck();
-  // }, [loggedIn]);
-
+  
   // Отправка данных пользователя, обновление стейта currentUser
   function handleUpdateUser(inputValues) {
     api
       .setUserData(inputValues)
       .then((user) => {
-        console.log(user.data);
         setCurrentUser({
           name: user.data.name,
           email: user.data.email,

@@ -14,15 +14,15 @@ const SavedMovies = (props) => {
     search: '',
     short: false,
   });
-  
-  // Использование самописного хука поиска
-  const [movies, handldeSearch] = useSearch(searchData, setSearchData);
 
-  // Использование самописного хука валидации
-  const { handleDataChange, formValidationMessages } = useValidate(
+  // Использование самописного хука поиска
+  const { movies, handldeSearch, message } = useSearch(
     searchData,
     setSearchData
   );
+
+  // Использование самописного хука валидации
+  const { handleDataChange } = useValidate(searchData, setSearchData);
 
   return (
     <>
@@ -32,6 +32,7 @@ const SavedMovies = (props) => {
           searchData={searchData}
           onSubmit={handldeSearch}
           onChange={handleDataChange}
+          message={message}
         >
           <FilterCheckbox searchData={searchData} onChange={handleDataChange} />
         </SearchForm>

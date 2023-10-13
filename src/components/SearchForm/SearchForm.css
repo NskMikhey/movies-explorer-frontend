@@ -4,6 +4,7 @@
   padding: 70px 70px 10px;
   box-sizing: border-box;
   display: flex;
+  position: relative;
 }
 
 .search-form {
@@ -52,6 +53,15 @@
   right: 10px;
   top: 10px;
   cursor: pointer;
+}
+
+.search__message {
+  position: absolute;
+  display: block;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  bottom: 20px;
 }
 
 @media screen and (max-width: 920px) {

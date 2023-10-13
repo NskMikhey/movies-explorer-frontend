@@ -22,12 +22,6 @@ export const getAllMovies = async () => {
     localStorage.setItem(LOCALSTORAGE_MOVIES, JSON.stringify(movies));
     return movies;
   } catch (err) {
-    err.then((res) => {});
+    console.log(err);
   }
 };
-
-// export const SERVER_ERRORS = {
-//   400: "Одно из полей не заполнено или не прошло валидацию.",
-//   401: "Введен неверный email или пароль.",
-//   409: "Пользователь с введенным email уже зарегистрирован.",
-// }

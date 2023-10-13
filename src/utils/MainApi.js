@@ -28,7 +28,6 @@ class Api {
 
   // Авторизуем пользователя на сервер
   authorize(loginData) {
-    console.log(loginData);
     return fetch(`${this._serverURL}${LOGIN}`, {
       method: 'POST',
       headers: this._headers,

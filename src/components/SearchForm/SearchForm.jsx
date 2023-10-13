@@ -7,7 +7,7 @@ const SearchForm = (props) => {
     evt.preventDefault();
     props.onSubmit();
   };
-// ToDo: добавить ToolTip для сообщения инфы по поиску
+  
   return (
     <section className='search'>
       <form className='search-form' onSubmit={handleSubmit} noValidate>
@@ -28,6 +28,7 @@ const SearchForm = (props) => {
           Поиск
         </button>
       </form>
+      {props.message && <span className='search__message'>{props.message}</span>}
     </section>
   );
 };

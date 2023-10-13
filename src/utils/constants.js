@@ -1,6 +1,7 @@
 // КОНСТАНТЫ ДЛЯ ПРОЕКТА
 // API URL
 export const BASE_URL_MAIN = 'https://api.nskmikhey.nomoredomainsicu.ru';
+// export const BASE_URL_MAIN = 'http://localhost:4000';
 export const BASE_URL_MOVIE = 'https://api.nomoreparties.co';
 
 // Имен в localStorage
@@ -51,12 +52,7 @@ export const DEVICE_PARAMETERS = {
 };
 
 // Timeouts and time
-export const TIMEOUT = {
-  preloader: 500,
-  register: 2000,
-  download: 1500,
-  resize: 500,
-};
+export const TIMEOUT = 500;
 
 export const REGX_NAME = /^[a-zA-Zа-яА-Я\s-]+$/;
 export const REGX_EMAIL = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -66,13 +62,13 @@ export const DURATION_SHORT_MOVIES = 40;
 // Message texts
 export const MESSAGE_TEXT = {
   register: 'Вы успешно зарегистрировались!',
-  login:'Добро пожаловть!',
-  noEmail: 'Введен некоректный e-mail. Пример корректного ввода: pochta@yandex.ru',
+  login: 'Добро пожаловть!',
+  noEmail:
+    'Введен некоректный e-mail. Пример корректного ввода: pochta@yandex.ru',
   noName: 'Поле должно содержать только латиницу, кириллицу, пробел или дефис',
   noMovies: 'Ничего не найдено',
-  // beforeSearching: 'Введите название фильма для начала поиска',
   saveProfile: 'Данные успешно изменены',
   emptyString: 'Нужно ввести ключевое слово',
   serverError:
-    'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
+    'Во время запроса произошла ошибка. Подождите немного и попробуйте ещё раз',
 };

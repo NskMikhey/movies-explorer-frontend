@@ -53,7 +53,7 @@ const Profile = (props) => {
       <Header loggedIn={props.loggedIn} />
       <main className='profile'>
         <section className='profile__container'>
-          <h1 className='profile__title'>Привет, Виталий!</h1>
+          <h1 className='profile__title'>{`Привет, ${profileData.name}!`}</h1>
           <form className='form-profile' onSubmit={handleSubmit}>
             <label className='form-profile__input-group' htmlFor='profile_name'>
               Имя
@@ -94,20 +94,18 @@ const Profile = (props) => {
             </label>
 
             <span
-              className={`profile__error ${
-                props.response.type === 'success' && 'profile__error_success'
-              }`}
+              className={`profile__error ${props.response.type === 'success' && 'profile__error_success'
+                }`}
             >
               {props.response.message}
             </span>
 
             <button
               type='submit'
-              className={`profile__button-submit ${
-                props.isFormActive
+              className={`profile__button-submit ${props.isFormActive
                   ? 'profile__button-submit_active button-hover'
                   : 'link-hover'
-              }`}
+                }`}
               onClick={props.isFormActive ? handleSubmit : handleFormActive}
               disabled={
                 (props.isFormActive &&

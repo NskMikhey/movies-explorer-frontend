@@ -3,6 +3,7 @@ import './Register.css';
 import { Link } from 'react-router-dom';
 import Auth from '../Auth/Auth';
 import HeaderAuth from '../HeaderAuth/HeaderAuth';
+import { PATH_TO } from '../../utils/constants';
 
 const Register = (props) => {
   // Стейты данных пользователя
@@ -17,6 +18,7 @@ const Register = (props) => {
       <HeaderAuth title='Добро пожаловать!' />
       <section className='form__container'>
         <Auth
+          onSubmit={props.registration}
           data={registerData}
           textButton='Зарегистрироваться'
           setData={setRegisterData}
@@ -24,7 +26,7 @@ const Register = (props) => {
         />
         <div className='form__auth-group'>
           <p className='form__auth-text'>Уже зарегистрированы?&ensp;</p>
-          <Link to='/signin' className='form__auth-link link-hover'>
+          <Link to={PATH_TO.LOGIN} className='form__auth-link link-hover'>
             Войти
           </Link>
         </div>

@@ -30,6 +30,10 @@ input:hover {
   opacity: 0.7;
 }
 
+input:disabled:hover {
+  opacity: 1;
+}
+
 .button-hover:hover {
   opacity: 0.8;
 }

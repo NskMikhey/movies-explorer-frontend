@@ -27,7 +27,8 @@
   line-height: normal;
 }
 
-.form__input:invalid {
+.form__input:invalid,
+.form__input_error {
   color: #EE3465;
 }
 

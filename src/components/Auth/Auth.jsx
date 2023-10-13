@@ -1,15 +1,25 @@
 import React from 'react';
 import './Auth.css';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useValidate } from '../../hooks/useValidate';
+import { PATH_TO } from '../../utils/constants';
 
 const Auth = (props) => {
   // Навигация
   const { pathname } = useLocation();
-  const navigate = useNavigate();
-
+  const {
+    MAIN,
+    REGISTER,
+    LOGIN,
+    MOVIES,
+    SAVED_MOVIES,
+    PROFILE,
+    ANY_OTHER,
+    USER_ME,
+    BEATFILM,
+  } = PATH_TO;
   // Использование самописного хука валидации
-  const { formValid, handledataChange, formValidationMessages } = useValidate(
+  const { formValid, handleDataChange, formValidationMessages } = useValidate(
     props.data,
     props.setData
   );
@@ -17,9 +27,7 @@ const Auth = (props) => {
   // Отправка формы
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    props.setLoggedIn(true);
-    navigate('/movies', { replace: true });
-    // props.registration(data);
+    props.onSubmit(props.data);
   };
 
   return (
@@ -30,10 +38,13 @@ const Auth = (props) => {
           <input
             required
             type='text'
-            className='form__input'
+            className={[
+              'form__input',
+              formValidationMessages.name && 'form__input_error',
+            ].join(' ')}
             name='name'
             value={props.data.name}
-            onChange={handledataChange}
+            onChange={handleDataChange}
             placeholder='Виталий'
             autoComplete='off'
             id='auth-name'
@@ -48,9 +59,12 @@ const Auth = (props) => {
         <input
           required
           type='email'
-          className='form__input'
+          className={[
+            'form__input',
+            formValidationMessages.email && 'form__input_error',
+          ].join(' ')}
           name='email'
-          onChange={handledataChange}
+          onChange={handleDataChange}
           value={props.data.email}
           placeholder='pochta@yandex.ru|'
           autoComplete='off'
@@ -65,10 +79,13 @@ const Auth = (props) => {
         <input
           required
           type='password'
-          className='form__input'
+          className={[
+            'form__input',
+            formValidationMessages.password && 'form__input_error',
+          ].join(' ')}
           name='password'
           value={props.data.password}
-          onChange={handledataChange}
+          onChange={handleDataChange}
           placeholder='••••••••••••••'
           autoComplete='off'
           id='auth-password'
@@ -78,7 +95,11 @@ const Auth = (props) => {
         <span className='form__error'>{formValidationMessages.password}</span>
       </label>
       <span className='form__error form__error_response'></span>
-      <button type='submit' className='form__submit button-hover' disabled={!formValid}>
+      <button
+        type='submit'
+        className='form__submit button-hover'
+        disabled={!formValid}
+      >
         {props.textButton}
       </button>
     </form>
